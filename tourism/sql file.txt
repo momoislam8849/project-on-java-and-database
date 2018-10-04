@@ -1,0 +1,338 @@
+-- phpMyAdmin SQL Dump
+-- version 4.4.14
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 07, 2018 at 04:35 PM
+-- Server version: 5.6.26
+-- PHP Version: 5.6.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `tourism`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bandorbon`
+--
+
+CREATE TABLE IF NOT EXISTS `bandorbon` (
+  `serial` int(30) NOT NULL,
+  `id` varchar(30) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `food` varchar(30) NOT NULL,
+  `travel` varchar(30) NOT NULL,
+  `showtotal` int(30) NOT NULL,
+  `stayfee` int(30) NOT NULL DEFAULT '9000'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bandorbon`
+--
+
+INSERT INTO `bandorbon` (`serial`, `id`, `date`, `food`, `travel`, `showtotal`, `stayfee`) VALUES
+(1, '101m', '12-6-18', 'no', 'train', 10600, 9000),
+(2, '', '', 'no', 'bus', 11000, 9000),
+(3, '1234567', '4-6-18', 'no', 'train', 10600, 9000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bazar`
+--
+
+CREATE TABLE IF NOT EXISTS `bazar` (
+  `serial` int(30) NOT NULL,
+  `id` varchar(30) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `food` varchar(30) NOT NULL,
+  `travel` varchar(30) NOT NULL,
+  `showtotal` int(30) NOT NULL,
+  `stayfee` int(30) NOT NULL DEFAULT '5000'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bazar`
+--
+
+INSERT INTO `bazar` (`serial`, `id`, `date`, `food`, `travel`, `showtotal`, `stayfee`) VALUES
+(1, '1234', '23-4-18', 'yes', 'flight', 11500, 5000),
+(2, '12', '3-4-18', 'yes', 'train', 8100, 5000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cbazar`
+--
+
+CREATE TABLE IF NOT EXISTS `cbazar` (
+  `serial` int(30) NOT NULL,
+  `id` varchar(30) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `food` varchar(30) NOT NULL,
+  `travel` varchar(30) NOT NULL,
+  `showtotal` int(30) NOT NULL,
+  `stayfee` int(30) NOT NULL DEFAULT '7000'
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cbazar`
+--
+
+INSERT INTO `cbazar` (`serial`, `id`, `date`, `food`, `travel`, `showtotal`, `stayfee`) VALUES
+(1, '101m', '15-5-18', 'no', 'train', 8600, 7000),
+(2, '121', '2-8-18', 'no', 'bus', 9000, 7000),
+(3, '', '', 'yes', 'bus', 10500, 7000),
+(4, '', '', 'yes', 'bus', 10500, 7000),
+(5, '123456', '', 'yes', 'bus', 10500, 7000),
+(6, '101m', '', 'yes', 'bus', 10500, 7000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loginadmin`
+--
+
+CREATE TABLE IF NOT EXISTS `loginadmin` (
+  `serial` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `loginadmin`
+--
+
+INSERT INTO `loginadmin` (`serial`, `username`, `password`) VALUES
+(1, 'shampa', 'shampa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packages`
+--
+
+CREATE TABLE IF NOT EXISTS `packages` (
+  `id` int(11) NOT NULL,
+  `place` varchar(30) NOT NULL,
+  `duration` varchar(30) NOT NULL,
+  `staycost` int(30) NOT NULL,
+  `foodprice` int(30) NOT NULL,
+  `buscost` int(30) NOT NULL,
+  `traincost` int(30) NOT NULL,
+  `flightcost` int(30) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `packages`
+--
+
+INSERT INTO `packages` (`id`, `place`, `duration`, `staycost`, `foodprice`, `buscost`, `traincost`, `flightcost`) VALUES
+(4, 'bandarbaan', '2 night 2 days', 9000, 1500, 2000, 1600, 5000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE IF NOT EXISTS `payment` (
+  `serial` int(30) NOT NULL,
+  `id` varchar(30) DEFAULT NULL,
+  `credit` varchar(30) NOT NULL,
+  `cvv` varchar(30) NOT NULL,
+  `expiration` varchar(30) NOT NULL,
+  `paid` varchar(30) NOT NULL DEFAULT 'yes'
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`serial`, `id`, `credit`, `cvv`, `expiration`, `paid`) VALUES
+(1, '121', '123465436787nc', '7645t855t', '5-8-18', 'yes'),
+(2, '144788', '11177553423', '343435454', '4-5-18', 'yes'),
+(3, '', '', '', '', 'yes'),
+(4, '', '', '', '', 'yes'),
+(5, '', '2232132', '12343434', '1223234', 'yes'),
+(6, '1234', '13434', '343423', '2-6-18', 'yes'),
+(7, '12345', '243443', '23434', '2324', 'yes'),
+(8, '', '', '', '', 'yes'),
+(9, '', '', '', '', 'yes'),
+(10, '34567', '', '', '', 'yes'),
+(11, '123456', '12345566', '2343', '23243', 'yes'),
+(12, '12222', '2323', '33', '43545', 'yes'),
+(13, '123456', '232434', '23243', '34343', 'yes'),
+(14, '12345', '', '', '', 'yes'),
+(15, '1234567', '23545656', '343546', '3354366', 'yes'),
+(16, '1234567', '343545', '454534', '4543534', 'yes'),
+(17, '1234567', '6767', '44564656', '45466', 'yes'),
+(18, '12', '3565', '456456', '34656', 'yes');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rangamati`
+--
+
+CREATE TABLE IF NOT EXISTS `rangamati` (
+  `serial` int(30) NOT NULL,
+  `id` varchar(30) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `food` varchar(30) NOT NULL,
+  `travel` varchar(30) NOT NULL,
+  `showtotal` int(30) NOT NULL,
+  `stayfee` int(30) NOT NULL DEFAULT '9000'
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rangamati`
+--
+
+INSERT INTO `rangamati` (`serial`, `id`, `date`, `food`, `travel`, `showtotal`, `stayfee`) VALUES
+(1, '144788', '7-4-18', 'yes', 'bus', 8500, 9000),
+(2, '1467', '6-4-18', 'yes', 'bus', 8500, 9000),
+(3, '101m', '9-8-18', 'yes', 'flight', 11500, 9000),
+(4, '12345', '1-5-18', 'yes', 'train', 8100, 9000),
+(5, '1234567', '', 'no', 'train', 6600, 9000),
+(6, '101m', '2-2-18', 'no', 'train', 6600, 9000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `registrationform`
+--
+
+CREATE TABLE IF NOT EXISTS `registrationform` (
+  `serial` int(30) NOT NULL,
+  `id` varchar(30) NOT NULL,
+  `fullname` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `mobile` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `registrationform`
+--
+
+INSERT INTO `registrationform` (`serial`, `id`, `fullname`, `lastname`, `email`, `mobile`, `username`, `password`) VALUES
+(1, '101m', 'momo', 'islam', 'momo@edu,bd', '01987654321', 'momo', 'momo'),
+(2, '121', 'kaium', 'ahmed', 'kaium@gmail.com', '01876543218', 'kaium', 'kaium'),
+(3, '17188', 'chadni', 'islam', 'chadni@gmail.com', '01876438631', 'chadni', 'chadni'),
+(4, '1467', 'nirob', 'islam', 'nirob@gmail.com', '01765343445', 'nirob', 'nirob'),
+(5, '12345', 'zahid', 'hasan', 'zahid@gmail.com', '01866354534', 'zahid', 'zahid'),
+(6, '1234567', 'tonu', 'islam', 'tonu@gmail.com', '01876543216', 'tonu', 'tonu'),
+(7, '12', 'dina', 'ahmed', 'dina@gmail.com', '0198763463', 'dina', 'dina');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bandorbon`
+--
+ALTER TABLE `bandorbon`
+  ADD PRIMARY KEY (`serial`);
+
+--
+-- Indexes for table `bazar`
+--
+ALTER TABLE `bazar`
+  ADD PRIMARY KEY (`serial`);
+
+--
+-- Indexes for table `cbazar`
+--
+ALTER TABLE `cbazar`
+  ADD PRIMARY KEY (`serial`);
+
+--
+-- Indexes for table `loginadmin`
+--
+ALTER TABLE `loginadmin`
+  ADD PRIMARY KEY (`serial`);
+
+--
+-- Indexes for table `packages`
+--
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`serial`);
+
+--
+-- Indexes for table `rangamati`
+--
+ALTER TABLE `rangamati`
+  ADD PRIMARY KEY (`serial`);
+
+--
+-- Indexes for table `registrationform`
+--
+ALTER TABLE `registrationform`
+  ADD PRIMARY KEY (`serial`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bandorbon`
+--
+ALTER TABLE `bandorbon`
+  MODIFY `serial` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `bazar`
+--
+ALTER TABLE `bazar`
+  MODIFY `serial` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `cbazar`
+--
+ALTER TABLE `cbazar`
+  MODIFY `serial` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `loginadmin`
+--
+ALTER TABLE `loginadmin`
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `packages`
+--
+ALTER TABLE `packages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `serial` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `rangamati`
+--
+ALTER TABLE `rangamati`
+  MODIFY `serial` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `registrationform`
+--
+ALTER TABLE `registrationform`
+  MODIFY `serial` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
